@@ -8,14 +8,14 @@ const Weather = ({ weatherData, weatherForecast }) => {
     <>
       <section className="flex flex-row gap-8 m-10 justify-center">
         <Card
-          type={"Clima de hoy en" + " " + weatherData.name}
+          type={`Clima de hoy en ${weatherData.name}`}
           subtype={moment().format("MMMM Do YYYY")}
           data={weatherData.main["temp"]}
           subData={weatherData.weather[0]["description"]}
           box1Title="Visibilidad"
           box1={weatherData.visibility}
           box2Title="Humedad"
-          box2={weatherData.main["humidity"] + "%"}
+          box2={`${weatherData.main["humidity"]} %`}
           box3Title="Presión"
           box3={weatherData.main["pressure"]}
           img="https://img.freepik.com/free-vector/horse-saddle-hanging-wooden-ranch-fence-scene_107791-11215.jpg?w=1800&t=st=1664942640~exp=1664943240~hmac=cea5d2cb7036217a9ebbfa7755c041199eff4a1c6ae724dd907f0f294e0d6481"
