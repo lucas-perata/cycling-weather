@@ -18,10 +18,13 @@ const Forecast = ({ dayForecast }) => {
           </div>
           <div className="">
             <div className="border shadow rounded-lg h-12 w-48 flex justify-center">
-              <div className="flex w-full h-full justify-around mt-4">
-                <p className="text-ls p-1">
-                  {dayForecast.list[0].wind["speed"]}
-                </p>
+              <div className="flex w-full h-full justify-around">
+                <div className="h-full">
+                  <p>hola</p>
+                  <p className="text-ls p-1">
+                    {dayForecast.list[0].wind["speed"]}
+                  </p>
+                </div>
                 <p className="text-ls p-1">{dayForecast.list[0].wind["deg"]}</p>
                 <p className="text-ls p-1">
                   {dayForecast.list[0].wind["gust"]}

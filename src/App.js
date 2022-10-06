@@ -10,6 +10,7 @@ function App() {
   const [long, setLong] = useState([]);
   const [data, setData] = useState([]);
   const [forecast, setForecast] = useState([]);
+  const [dailyForecast, setDailyForecast] = useState([]);
   const [show, setShow] = useState();
 
   useEffect(() => {
@@ -42,7 +43,24 @@ function App() {
         .then((res2) => res2.json())
         .then((result2) => {
           setForecast(result2);
-          console.log(result2);
+        });
+    };
+    fetchData();
+  }, [lat, long]);
+
+  function goPage() {
+    window.location.reload();
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetch(
+        `${process.env.REACT_APP_API_URL_2}/v2.0/forecast/daily?lat=${lat}&lon=${long}&key=${process.env.REACT_APP_API_KEY_2}&include=minutely`
+      )
+        .then((res3) => res3.json())
+        .then((result3) => {
+          setDailyForecast(result3);
+          console.log(result3);
         });
     };
     fetchData();
