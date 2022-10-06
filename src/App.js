@@ -10,6 +10,11 @@ function App() {
   const [long, setLong] = useState([]);
   const [data, setData] = useState([]);
   const [forecast, setForecast] = useState([]);
+  const [show, setShow] = useState();
+
+  useEffect(() => {
+    setTimeout(() => setShow(true), 3500);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,6 +48,10 @@ function App() {
     fetchData();
   }, [lat, long]);
 
+  function goPage() {
+    window.location.reload();
+  }
+
   return (
     <>
       <main className="flex flex-col h-screen">
@@ -62,6 +71,11 @@ function App() {
               <p className="text-gray-400 animate-pulse ">
                 Consiguiendo información sobre el clima en tu ubicación
               </p>
+              {show && (
+                <button className="" onClick={goPage}>
+                  Intenta de nuevo
+                </button>
+              )}
             </div>
           </div>
         )}
