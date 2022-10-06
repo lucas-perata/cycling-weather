@@ -3,6 +3,7 @@ import Weather from "./components/Weather/Weather";
 import { useState, useEffect } from "react";
 import Hero from "./components/Hero/Hero";
 import Sidebar from "./components/Sidebar/Sidebar";
+import ClockLoader from "react-spinners/ClockLoader";
 
 function App() {
   const [lat, setLat] = useState([]);
@@ -36,23 +37,33 @@ function App() {
         .then((res2) => res2.json())
         .then((result2) => {
           setForecast(result2);
+          console.log(result2);
         });
-      console.log(forecast.cod);
     };
     fetchData();
   }, [lat, long]);
 
   return (
     <>
-      <main>
+      <main className="flex flex-col h-screen">
         <Hero />
-        {typeof data.main != "undefined" && forecast.cod != 400 ? (
+        {typeof data.main !== "undefined" && parseInt(forecast.cod) !== 400 ? (
           <>
             <Weather weatherData={data} weatherForecast={forecast} />
-            <Sidebar weatherForecast={forecast} />
+            <Sidebar dayForecast={forecast} />
           </>
         ) : (
-          <div>Cargando</div>
+          <div className="h-full  w-screen flex justify-center align-middle">
+            <div className="m-auto flex flex-col gap-5">
+              <ClockLoader
+                className="m-auto animate-pulse "
+                color="rgba(220, 73, 0, 1)"
+              />
+              <p className="text-gray-400 animate-pulse ">
+                Consiguiendo información sobre el clima en tu ubicación
+              </p>
+            </div>
+          </div>
         )}
       </main>
     </>
