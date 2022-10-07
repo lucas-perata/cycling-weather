@@ -60,7 +60,6 @@ function App() {
         .then((res3) => res3.json())
         .then((result3) => {
           setDailyForecast(result3);
-          console.log(result3.forecast["forecastday"].slice(1, 4));
         });
     };
     fetchData();
@@ -74,7 +73,9 @@ function App() {
     <>
       <main className="flex flex-col h-screen">
         <Hero />
-        {typeof data.main !== "undefined" && parseInt(forecast.cod) !== 400 ? (
+        {typeof data.main !== "undefined" &&
+        parseInt(forecast.cod) !== 400 &&
+        typeof dailyForecast.location !== "undefined" ? (
           <>
             <Weather weatherData={data} weatherForecast={dailyForecast} />
             <Sidebar dayForecast={forecast} />
