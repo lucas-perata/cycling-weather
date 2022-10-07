@@ -6,7 +6,7 @@ import DaysWeatherContainer from "../DaysWeatherContainer/DaysWeatherContainer";
 const Weather = ({ weatherData, weatherForecast }) => {
   return (
     <>
-      <section className="flex flex-row gap-8 m-10 justify-center">
+      <section className="flex flex-row gap-8 m-10 justify-center xs:flex-col xs:w-screen">
         <Card
           type={`Clima de hoy en ${weatherData.name}`}
           subtype={moment().format("MMMM Do YYYY")}

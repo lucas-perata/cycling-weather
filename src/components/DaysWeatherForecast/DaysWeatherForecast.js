@@ -2,14 +2,14 @@ import React from "react";
 
 const DaysWeatherContainer = ({ dayForecast }) => {
   return (
-    <div className="flex flex-col justify-center h-full">
+    <div className="flex flex-col justify-center h-full xs:w-screen">
       <div className="flex p-1 flex-col gap-2">
         {dayForecast.forecast["forecastday"].slice(1, 4).map((item) => {
           return (
             <div className=" flex justify-center text-center">
               <p className="p-4 mt-4">{`${item["date"]}`}</p>
               <div
-                className="bg-yellow-100 border w-full h-24 rounded-xl flex flex-row"
+                className="bg-yellow-100 border w-full h-24 rounded-xl flex flex-row xs:flex-col"
                 style={
                   item["day"]["maxtemp_c"] > 20
                     ? { backgroundColor: "yellow" }

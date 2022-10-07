@@ -17,7 +17,7 @@ function Card({
   return (
     <>
       <div
-        className="container bg-red-600 h-80 w-1/4 rounded-xl"
+        className="container bg-red-600 h-80 w-1/4 rounded-xl xs:w-full"
         style={{
           backgroundImage: `url(${img})`,
           backgroundPosition: "center",
@@ -25,7 +25,7 @@ function Card({
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="flex flex-col justify-around h-full">
+        <div className="flex flex-col justify-around h-full xs:w-full">
           <div className="ml-7">
             <p className=" text-2xl">{type}</p>
             <p className="">{subtype}</p>

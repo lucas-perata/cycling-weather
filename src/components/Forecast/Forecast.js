@@ -16,7 +16,7 @@ const Forecast = ({ dayForecast }) => {
     return directions[degrees];
   }
   return (
-    <div className="flex flex-col w-1/2 justify-around h-full">
+    <div className="flex flex-col w-1/2 justify-around h-full xs:w-screen xs:flex-wrap xs:overflow-scroll">
       <div className="ml-7">
         <p className=" text-2xl">Próximas horas</p>
       </div>
