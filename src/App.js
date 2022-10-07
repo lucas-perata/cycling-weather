@@ -48,10 +48,6 @@ function App() {
     fetchData();
   }, [lat, long]);
 
-  function goPage() {
-    window.location.reload();
-  }
-
   useEffect(() => {
     const fetchData = async () => {
       await fetch(
