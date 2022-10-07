@@ -1,6 +1,6 @@
 import React from "react";
 import Tips from "../Tips/Tips";
-import Forecast from "../../Forecast/Forecast";
+import Forecast from "../Forecast/Forecast";
 
 const Sidebar = ({ dayForecast }) => {
   return (
