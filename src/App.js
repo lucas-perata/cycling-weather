@@ -55,12 +55,12 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       await fetch(
-        `${process.env.REACT_APP_API_URL_2}/v2.0/forecast/daily?lat=${lat}&lon=${long}&key=${process.env.REACT_APP_API_KEY_2}&include=minutely`
+        `${process.env.REACT_APP_API_URL_2}/forecast.json?key=${process.env.REACT_APP_API_KEY_2}&q=${lat}, ${long}&days=4`
       )
         .then((res3) => res3.json())
         .then((result3) => {
           setDailyForecast(result3);
-          console.log(result3);
+          console.log(result3.forecast["forecastday"][0]);
         });
     };
     fetchData();
@@ -76,7 +76,7 @@ function App() {
         <Hero />
         {typeof data.main !== "undefined" && parseInt(forecast.cod) !== 400 ? (
           <>
-            <Weather weatherData={data} weatherForecast={forecast} />
+            <Weather weatherData={data} weatherForecast={dailyForecast} />
             <Sidebar dayForecast={forecast} />
           </>
         ) : (
