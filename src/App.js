@@ -25,7 +25,7 @@ function App() {
       });
 
       await fetch(
-        `${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
+        `${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&lang=es&APPID=${process.env.REACT_APP_API_KEY}`
       )
         .then((res1) => res1.json())
         .then((result1) => {
@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       await fetch(
-        `${process.env.REACT_APP_API_URL}/forecast?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
+        `${process.env.REACT_APP_API_URL}/forecast?lat=${lat}&lon=${long}&units=metric&lang=es&APPID=${process.env.REACT_APP_API_KEY}`
       )
         .then((res2) => res2.json())
         .then((result2) => {
@@ -60,7 +60,7 @@ function App() {
         .then((res3) => res3.json())
         .then((result3) => {
           setDailyForecast(result3);
-          console.log(result3.forecast["forecastday"][0]);
+          console.log(result3.forecast["forecastday"].slice(1, 4));
         });
     };
     fetchData();
