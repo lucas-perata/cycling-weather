@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
-import TempDay from "../TempDay/TempDay";
 import moment from "moment/moment";
+import DaysWeatherContainer from "../DaysWeatherContainer/DaysWeatherContainer";
 
 const Weather = ({ weatherData, weatherForecast }) => {
   return (
@@ -33,7 +33,7 @@ const Weather = ({ weatherData, weatherForecast }) => {
           box3={weatherData.main["pressure"]}
           img="https://img.freepik.com/free-vector/crop-duster-plane-flying-green-corn-field-farm-airplane-blue-cloudy-sky-agricultural-cropdus_107791-7514.jpg?w=1380&t=st=1664943121~exp=1664943721~hmac=36b0899aa98b8d359dda6f473481e96b8c912661d0f8a884d5ac9c6099c30347"
         />
-        <TempDay dayForecast={weatherForecast} />
+        <DaysWeatherContainer dayForecast={weatherForecast} />
       </section>
     </>
   );
