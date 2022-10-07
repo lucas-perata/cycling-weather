@@ -37,11 +37,15 @@ const Forecast = ({ dayForecast }) => {
                   <div className="flex w-full h-full justify-around">
                     <div className="h-full">
                       <RiTempHotLine />
-                      <p className="text-ls p-1">{day.main["temp_max"]}</p>
+                      <p className="text-ls p-1">
+                        {`${day.main["temp_max"].toFixed(0)} C°`}
+                      </p>
                     </div>
                     <div>
                       <RiTempColdLine />
-                      <p className="text-ls p-1">{day.main["temp_min"]}</p>
+                      <p className="text-ls p-1">
+                        {`${day.main["temp_min"].toFixed(0)} C°`}
+                      </p>
                     </div>
                     <div>
                       <WiHumidity />
