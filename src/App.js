@@ -1,7 +1,6 @@
 import "./App.css";
 import Weather from "./components/Weather/Weather";
 import { useState, useEffect } from "react";
-import Hero from "./components/Hero/Hero";
 import Sidebar from "./components/Sidebar/Sidebar";
 import ClockLoader from "react-spinners/ClockLoader";
 
@@ -67,14 +66,13 @@ function App() {
 
   return (
     <>
-      <main className="flex flex-col h-screen">
-        <Hero />
+      <main className="flex w-screen h-screen">
         {typeof data.main !== "undefined" &&
         parseInt(forecast.cod) !== 400 &&
         typeof dailyForecast.location !== "undefined" ? (
           <>
+            <Sidebar dayForecast={data} />
             <Weather weatherData={data} weatherForecast={dailyForecast} />
-            <Sidebar dayForecast={forecast} />
           </>
         ) : (
           <div className="h-full  w-screen flex justify-center align-middle">
