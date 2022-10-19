@@ -1,5 +1,5 @@
 import React from "react";
-import DaysWeatherForecast from "../DaysWeatherForecast/DaysWeatherForecast";
+import DaysWeatherForecast from "./DaysWeatherForecast";
 
 const TempDay = ({ dayForecast }) => {
   return (
