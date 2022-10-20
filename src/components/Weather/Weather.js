@@ -8,6 +8,10 @@ const Weather = ({ weatherData, weatherForecast, dayForecast }) => {
       <section className="flex flex-col bg-black w-3/4 gap-10 xs:flex-col xs:w-screen">
         <NextHours dayForecast={dayForecast} />
         <TodayInfo weatherData={weatherData} />
+        <div className="flex justify-center w-full gap-10">
+          <button className="bg-white">Pronóstico extendido</button>
+          <button className="bg-white">Mapa de viento</button>
+        </div>
       </section>
     </>
   );
