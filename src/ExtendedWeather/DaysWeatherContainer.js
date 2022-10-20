@@ -1,10 +1,10 @@
 import React from "react";
-import DaysWeatherForecast from "./DaysWeatherForecast";
+import ExtendedWeatherForecast from "./ExtendedWeatherForecast";
 
 const TempDay = ({ dayForecast }) => {
   return (
     <div className="container bg-white border h-80 w-1/3 rounded-xl xs:w-screen xs:h-full">
-      <DaysWeatherForecast dayForecast={dayForecast} />
+      <ExtendedWeatherForecast dayForecast={dayForecast} />
     </div>
   );
 };

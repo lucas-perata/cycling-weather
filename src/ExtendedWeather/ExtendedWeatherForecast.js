@@ -1,6 +1,6 @@
 import React from "react";
 
-const DaysWeatherContainer = ({ dayForecast }) => {
+const ExtendedWeatherForecast = ({ dayForecast }) => {
   return (
     <div className="flex flex-col justify-center h-full xs:w-screen">
       <div className="flex p-1 flex-col gap-2">
