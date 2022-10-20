@@ -7,7 +7,7 @@ import {
 } from "react-icons/ri";
 import { WiHumidity, WiWindy } from "react-icons/wi";
 
-const Forecast = ({ dayForecast }) => {
+const NextHours = ({ dayForecast }) => {
   const directions = ["N", "NE", "E", "SU", "S", "SO", "O", "NO"];
   function convertDegreesToWindDirection(degrees) {
     degrees = (degrees * 8) / 360;
@@ -16,11 +16,9 @@ const Forecast = ({ dayForecast }) => {
     return directions[degrees];
   }
   return (
-    <div className="flex flex-col w-1/2 justify-around h-full xs:w-screen xs:flex-wrap xs:overflow-scroll">
-      <div className="ml-7">
-        <p className=" text-2xl">Próximas horas</p>
-      </div>
-      <div className=" flex justify-around text-center">
+    <div className="flex flex-col h-min mt-10 bg-white xs:w-screen xs:flex-wrap xs:overflow-scroll">
+      <h2>Próximas horas</h2>
+      <div className=" flex gap-10 p-2 justify-around text-center">
         {dayForecast.list.slice(0, 4).map((day) => {
           return (
             <div className="bg-yellow-100 border w-1/4 h-56 rounded-xl flex justify-around gap-5 p-5 flex-col">
@@ -85,4 +83,4 @@ const Forecast = ({ dayForecast }) => {
     </div>
   );
 };
-export default Forecast;
+export default NextHours;

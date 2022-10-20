@@ -1,4 +1,3 @@
-import "./App.css";
 import Weather from "./components/Weather/Weather";
 import { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -71,8 +70,12 @@ function App() {
         parseInt(forecast.cod) !== 400 &&
         typeof dailyForecast.location !== "undefined" ? (
           <>
-            <Sidebar dayForecast={data} />
-            <Weather weatherData={data} weatherForecast={dailyForecast} />
+            <Sidebar dayForecast={forecast} />
+            <Weather
+              weatherData={data}
+              weatherForecast={dailyForecast}
+              dayForecast={forecast}
+            />
           </>
         ) : (
           <div className="h-full  w-screen flex justify-center align-middle">
