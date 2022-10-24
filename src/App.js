@@ -70,7 +70,7 @@ function App() {
         parseInt(forecast.cod) !== 400 &&
         typeof dailyForecast.location !== "undefined" ? (
           <>
-            <Sidebar dayForecast={forecast} />
+            <Sidebar dayForecast={data} />
             <Weather
               weatherData={data}
               weatherForecast={dailyForecast}
