@@ -10,9 +10,9 @@ import setWindDirection from "../../hooks/setWindDirection";
 
 const NextHours = ({ dayForecast }) => {
   return (
-    <div className="flex flex-col h-min mt-10 bg-white xs:w-screen xs:flex-wrap xs:overflow-scroll">
-      <h2>Próximas horas</h2>
-      <div className=" flex gap-10 p-2 justify-around text-center">
+    <div className="flex flex-col h-min bg-white xs:w-screen xs:flex-wrap xs:overflow-scroll">
+      <h2 className="text-xl p-5">Próximas horas</h2>
+      <div className=" flex gap-5 p-5 justify-around text-center">
         {dayForecast.list.slice(0, 4).map((day) => {
           return (
             <div className="bg-yellow-100 border w-1/4 h-56 rounded-xl flex justify-around gap-5 p-5 flex-col">

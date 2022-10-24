@@ -2,15 +2,17 @@ import React from "react";
 import BigCard from "../WeatherCards/BigCard";
 import SmallCard from "../WeatherCards/SmallCard";
 import setWindDirection from "../../hooks/setWindDirection";
+import moment from "moment/moment";
+import { FiSunset, FiSunrise, FiCompass } from "react-icons/fi";
 
 const TodayInfo = ({ weatherData }) => {
   return (
     <div className="bg-white flex flex-col">
-      <h2>TodayInfo</h2>
-      <section className="flex justify-center flex-wrap gap-5 p-5">
+      <h2 className="p-5 text-xl">Today Info</h2>
+      <section className="flex justify-center flex-wrap gap-5">
         <BigCard
           title={"Humedad"}
-          info={weatherData.main["humidity"]}
+          info={`${weatherData.main["humidity"]}%`}
           details={
             <div class="w-full bg-gray-200 rounded-full">
               <div
@@ -26,9 +28,18 @@ const TodayInfo = ({ weatherData }) => {
           title={"Viento"}
           info={`${(weatherData.wind["speed"] * 3.6).toFixed(0)} km/h`}
           details={setWindDirection(weatherData.wind["deg"])}
+          icon={<FiCompass />}
         />
-        <SmallCard />
-        <SmallCard />
+        <SmallCard
+          title={"Amanecer"}
+          info={moment.unix(weatherData.sys["sunrise"]).format("HH:mm")}
+          icon={<FiSunrise />}
+        />
+        <SmallCard
+          title={"Puesta del sol"}
+          info={moment.unix(weatherData.sys["sunset"]).format("HH:mm")}
+          icon={<FiSunset />}
+        />
       </section>
     </div>
   );
