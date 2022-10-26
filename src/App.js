@@ -2,7 +2,10 @@ import Weather from "./components/Weather/Weather";
 import { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import ClockLoader from "react-spinners/ClockLoader";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DaysWeatherContainer from "./ExtendedWeather/DaysWeatherContainer";
+import WindMap from "./components/WindMap/WindMap";
+import Tips from "./components/Tips/Tips";
 function App() {
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
@@ -65,37 +68,53 @@ function App() {
 
   return (
     <>
-      <main className="flex w-screen h-screen">
-        {typeof data.main !== "undefined" &&
-        parseInt(forecast.cod) !== 400 &&
-        typeof dailyForecast.location !== "undefined" ? (
-          <>
-            <Sidebar dayForecast={data} />
-            <Weather
-              weatherData={data}
-              weatherForecast={dailyForecast}
-              dayForecast={forecast}
-            />
-          </>
-        ) : (
-          <div className="h-full  w-screen flex justify-center align-middle">
-            <div className="m-auto flex flex-col gap-5">
-              <ClockLoader
-                className="m-auto animate-pulse "
-                color="rgba(220, 73, 0, 1)"
-              />
-              <p className="text-gray-400 animate-pulse ">
-                Consiguiendo información sobre el clima en tu ubicación
-              </p>
-              {show && (
-                <button className="" onClick={goPage}>
-                  Intenta de nuevo
-                </button>
-              )}
+      <BrowserRouter>
+        <main className="flex w-screen h-screen">
+          {typeof data.main !== "undefined" &&
+          parseInt(forecast.cod) !== 400 &&
+          typeof dailyForecast.location !== "undefined" ? (
+            <>
+              <Sidebar dayForecast={data} />
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Weather
+                      weatherData={data}
+                      weatherForecast={dailyForecast}
+                      dayForecast={forecast}
+                    />
+                  }
+                />
+                <Route
+                  path="/forecast"
+                  element={<DaysWeatherContainer dayForecast={dailyForecast} />}
+                />
+                <Route path="/wind-map" element={<WindMap />} />
+                <Route path="/tips" element={<Tips />} />
+              </Routes>
+              ;
+            </>
+          ) : (
+            <div className="h-full  w-screen flex justify-center align-middle">
+              <div className="m-auto flex flex-col gap-5">
+                <ClockLoader
+                  className="m-auto animate-pulse "
+                  color="rgba(220, 73, 0, 1)"
+                />
+                <p className="text-gray-400 animate-pulse ">
+                  Consiguiendo información sobre el clima en tu ubicación
+                </p>
+                {show && (
+                  <button className="" onClick={goPage}>
+                    Intenta de nuevo
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
-        )}
-      </main>
+          )}
+        </main>
+      </BrowserRouter>
     </>
   );
 }
