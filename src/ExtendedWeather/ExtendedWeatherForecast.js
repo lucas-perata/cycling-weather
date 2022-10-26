@@ -50,4 +50,4 @@ const ExtendedWeatherForecast = ({ dayForecast }) => {
   );
 };
 
-export default DaysWeatherContainer;
+export default ExtendedWeatherForecast;
