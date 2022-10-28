@@ -6,61 +6,30 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DaysWeatherContainer from "./ExtendedWeather/DaysWeatherContainer";
 import WindMap from "./components/WindMap/WindMap";
 import Tips from "./components/Tips/Tips";
+import useWeatherApi from "./hooks/useWeatherApi";
+import useForecastApi from "./hooks/useForecastApi";
+import useMainWeather from "./hooks/useMainWeather";
 function App() {
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
-  const [data, setData] = useState([]);
-  const [forecast, setForecast] = useState([]);
-  const [dailyForecast, setDailyForecast] = useState([]);
   const [show, setShow] = useState();
 
   useEffect(() => {
     setTimeout(() => setShow(true), 3500);
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        setLat(position.coords.latitude);
-        setLong(position.coords.longitude);
-      });
+  function fetchData() {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setLat(position.coords.latitude);
+      setLong(position.coords.longitude);
+    });
+  }
 
-      await fetch(
-        `${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&lang=es&APPID=${process.env.REACT_APP_API_KEY}`
-      )
-        .then((res1) => res1.json())
-        .then((result1) => {
-          setData(result1);
-        });
-    };
-    fetchData();
-  }, [lat, long]);
+  fetchData();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      await fetch(
-        `${process.env.REACT_APP_API_URL}/forecast?lat=${lat}&lon=${long}&units=metric&lang=es&APPID=${process.env.REACT_APP_API_KEY}`
-      )
-        .then((res2) => res2.json())
-        .then((result2) => {
-          setForecast(result2);
-        });
-    };
-    fetchData();
-  }, [lat, long]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await fetch(
-        `${process.env.REACT_APP_API_URL_2}/forecast.json?key=${process.env.REACT_APP_API_KEY_2}&q=${lat}, ${long}&days=4`
-      )
-        .then((res3) => res3.json())
-        .then((result3) => {
-          setDailyForecast(result3);
-        });
-    };
-    fetchData();
-  }, [lat, long]);
+  let data = useMainWeather(lat, long);
+  let dailyForecast = useWeatherApi(lat, long);
+  let forecast = useForecastApi(lat, long);
 
   function goPage() {
     window.location.reload();

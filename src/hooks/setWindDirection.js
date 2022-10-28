@@ -1,5 +1,3 @@
-import React from "react";
-
 const setWindDirection = (degrees) => {
   const directions = ["N", "NE", "E", "SU", "S", "SO", "O", "NO"];
 

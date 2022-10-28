@@ -8,7 +8,7 @@ const BigCard = ({ title, info, details, icon }) => {
       <p style={{ fontSize: "3rem" }}>{info}</p>
       <div
         style={
-          title == "Viento"
+          title === "Viento"
             ? {
                 display: "flex",
                 justifyContent: "center",
