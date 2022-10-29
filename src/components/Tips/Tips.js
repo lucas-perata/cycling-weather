@@ -1,26 +1,43 @@
 import React from "react";
+import TipsCard from "./TipsCard";
+import {
+  GiWaterFlask,
+  GiFlatTire,
+  GiAstronautHelmet,
+  GiEyepatch,
+} from "react-icons/gi";
+import { BsEmojiSunglasses } from "react-icons/bs";
+import { MdOutlineFastfood } from "react-icons/md";
 
 export default function Tips() {
   return (
     <>
-      <div
-        className="container bg-white border h-80 w-1/4 rounded-xl shadow xs:w-screen"
-        style={{
-          backgroundImage: `url(https://media.istockphoto.com/vectors/road-to-mountains-vector-id1336320163?b=1&k=20&m=1336320163&s=612x612&w=0&h=_-pjf0NizOrDwUAIrJgSv2TF0dA-9JQcl0j0XhxHQeA=)`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+      <div className=" bg-slate-900 border h-screen w-9/12">
         <div className="flex flex-col justify-evenly h-full xs:w-screen">
-          <div className="ml-7">
-            <p className="text-2xl">Tips para tu rodada</p>
+          <div className="ml-7 text-center">
+            <h2 style={{ fontSize: "3rem" }} className="text-white">
+              Tips para tu rodada
+            </h2>
           </div>
-          <div className="flex flex-col text-white text-lg p-7 gap-2 justify-around">
-            <p>Llevar protector solar</p>
-            <p>Utilizar casco y guantes</p>
-            <p>Llevar hidratación y snacks</p>
-            <p>Cámaras y parches además de herramientas</p>
+          <div className="flex flex-row text-white text-lg p-7 gap-2 justify-evenly flex-wrap">
+            <TipsCard
+              content={"Utilizar protector solar"}
+              icon={<BsEmojiSunglasses />}
+            />
+            <TipsCard content={"Llevar hidratación"} icon={<GiWaterFlask />} />
+            <TipsCard
+              content={"Comprobar presión de las cubiertas"}
+              icon={<GiFlatTire />}
+            />
+            <TipsCard content={"Llevar casco"} icon={<GiAstronautHelmet />} />
+            <TipsCard
+              content={"Llevar algo dulce y/o salado"}
+              icon={<MdOutlineFastfood />}
+            />
+            <TipsCard
+              content={"Equipar repuesto de cámara y parches"}
+              icon={<GiEyepatch />}
+            />
           </div>
         </div>
       </div>

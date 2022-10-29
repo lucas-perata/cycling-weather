@@ -4,7 +4,10 @@ import Navigation from "./Navigation";
 
 const Sidebar = ({ dayForecast }) => {
   return (
-    <div className="flex flex-col xs:flex-col justify-evenly w-2/6 xs:h-full border h-screen bg-gray-300 ">
+    <div
+      style={{ width: "580px" }}
+      className="flex flex-col xs:flex-col justify-evenly xs:h-full border h-screen bg-gray-300 "
+    >
       <WeatherNow dayForecast={dayForecast} />
       <Navigation />
     </div>
