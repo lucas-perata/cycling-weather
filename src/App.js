@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import ClockLoader from "react-spinners/ClockLoader";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DaysWeatherContainer from "./ExtendedWeather/DaysWeatherContainer";
+import DaysWeatherContainer from "./components/ExtendedWeather/DaysWeatherContainer";
 import WindMap from "./components/WindMap/WindMap";
 import Tips from "./components/Tips/Tips";
 import useWeatherApi from "./hooks/useWeatherApi";
