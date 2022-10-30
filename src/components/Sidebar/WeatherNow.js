@@ -1,23 +1,20 @@
 import React from "react";
 import "./WeatherNow.css";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import moment from "moment/moment";
-import "moment/locale/es";
 
 const WeatherNow = ({ dayForecast }) => {
-  console.log(dayForecast.main);
   return (
-    <section className="flex bg-red-500 flex-col h-full justify-between items-center p-5">
+    <section className="flex bg-slate-800 flex-col h-full justify-between items-center p-2 text-white">
       <img
         src={`http://openweathermap.org/img/wn/${dayForecast.weather[0]["icon"]}@4x.png`}
         alt="weather-icon"
         width={"40%"}
       />
       <div className="flex justify-center">
-        <p style={{ fontSize: "7rem" }}>
+        <p className="text-slate-200" style={{ fontSize: "7rem" }}>
           {dayForecast.main["temp"].toFixed(0)}
         </p>
-        <p className="mt-10" style={{ fontSize: "2rem" }}>
+        <p className="mt-10 text-fuchsia-800" style={{ fontSize: "2rem" }}>
           °C
         </p>
       </div>
@@ -32,7 +29,6 @@ const WeatherNow = ({ dayForecast }) => {
           </i>
           <p className="text-lg">{`${dayForecast.name}`}</p>
         </div>
-        <p> {moment().format("LL")}</p>
       </div>
     </section>
   );
