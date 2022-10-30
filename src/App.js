@@ -4,7 +4,6 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import ClockLoader from "react-spinners/ClockLoader";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DaysWeatherContainer from "./components/ExtendedWeather/DaysWeatherContainer";
-import WindMap from "./components/WindMap/WindMap";
 import Tips from "./components/Tips/Tips";
 import useWeatherApi from "./hooks/useWeatherApi";
 import useForecastApi from "./hooks/useForecastApi";
@@ -15,7 +14,7 @@ function App() {
   const [show, setShow] = useState();
 
   useEffect(() => {
-    setTimeout(() => setShow(true), 3500);
+    setTimeout(() => setShow(true), 4000);
   }, []);
 
   function fetchData() {
@@ -64,22 +63,27 @@ function App() {
               ;
             </>
           ) : (
-            <div className="h-full  w-screen flex justify-center align-middle">
-              <div className="m-auto flex flex-col gap-5">
-                <ClockLoader
-                  className="m-auto animate-pulse "
-                  color="rgba(220, 73, 0, 1)"
-                />
-                <p className="text-gray-400 animate-pulse ">
-                  Consiguiendo información sobre el clima en tu ubicación
-                </p>
+            <section className="h-full bg-slate-900 text-slate-200 w-screen flex justify-center align-middle">
+              <div className="m-auto flex h-1/3 flex-col">
+                <div>
+                  <ClockLoader
+                    className="m-auto mb-5 animate-pulse "
+                    color="rgba(220, 73, 0, 1)"
+                  />
+                  <p className="animate-pulse ">
+                    Consiguiendo información sobre el clima en tu ubicación
+                  </p>
+                </div>
                 {show && (
-                  <button className="" onClick={goPage}>
+                  <button
+                    className="border text-sm m-auto p-1 rounded-xl text-slate-300 hover:bg-slate-800"
+                    onClick={goPage}
+                  >
                     Intenta de nuevo
                   </button>
                 )}
               </div>
-            </div>
+            </section>
           )}
         </main>
       </BrowserRouter>
