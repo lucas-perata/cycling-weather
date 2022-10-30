@@ -7,6 +7,7 @@ import {
 } from "react-icons/ri";
 import { WiHumidity, WiWindy } from "react-icons/wi";
 import setWindDirection from "../../hooks/setWindDirection";
+import "./NextHours.css";
 
 const NextHours = ({ dayForecast }) => {
   return (
@@ -15,7 +16,7 @@ const NextHours = ({ dayForecast }) => {
       <div className=" flex gap-5 p-5 justify-around text-center">
         {dayForecast.list.slice(0, 4).map((day) => {
           return (
-            <div className="bg-slate-800 hover:bg-slate-700 shadow-xl w-1/4 h-56 rounded-xl flex items-center justify-center gap-5 p-5 flex-col">
+            <div className="bg-slate-800 hover:bg-slate-700 shadow-xl w-1/4 h-56 rounded-xl flex items-center justify-center gap-5 p-5 flex-col mobile-cards">
               <div>
                 <p className="text-xl text-slate-200 p-1">
                   {parseInt(day.dt_txt.slice(10, 16)) < 12

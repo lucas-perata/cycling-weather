@@ -1,0 +1,10 @@
+.section {
+  width: 580px;
+}
+
+@media only screen and (max-width: 600px) {
+  .section {
+    width: 100%;
+    height: 100vh;
+  }
+}
