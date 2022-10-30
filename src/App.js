@@ -60,7 +60,6 @@ function App() {
                 />
                 <Route path="/tips" element={<Tips />} />
               </Routes>
-              ;
             </>
           ) : (
             <section className="h-full bg-slate-900 text-slate-200 w-screen flex justify-center align-middle">
