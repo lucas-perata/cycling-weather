@@ -4,7 +4,7 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 
 const WeatherNow = ({ dayForecast }) => {
   return (
-    <section className="flex bg-slate-800 flex-col h-full justify-between items-center p-2 text-white">
+    <section className="flex section bg-slate-800 flex-col h-full justify-between items-center p-2 text-white">
       <img
         src={`http://openweathermap.org/img/wn/${dayForecast.weather[0]["icon"]}@4x.png`}
         alt="weather-icon"

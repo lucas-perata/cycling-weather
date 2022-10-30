@@ -37,7 +37,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <main className="flex w-screen h-screen">
+        <main className="flex xs:flex-col w-screen h-screen">
           {typeof data.main !== "undefined" &&
           parseInt(forecast.cod) !== 400 &&
           typeof dailyForecast.location !== "undefined" ? (
