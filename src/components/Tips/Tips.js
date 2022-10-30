@@ -12,7 +12,7 @@ import { MdOutlineFastfood } from "react-icons/md";
 export default function Tips() {
   return (
     <>
-      <div className=" bg-slate-900 border h-screen w-9/12">
+      <section className=" bg-slate-900 h-screen w-9/12">
         <div className="flex flex-col justify-evenly h-full xs:w-screen">
           <div className="ml-7 text-center">
             <h2 style={{ fontSize: "3rem" }} className="text-white">
@@ -40,7 +40,7 @@ export default function Tips() {
             />
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
