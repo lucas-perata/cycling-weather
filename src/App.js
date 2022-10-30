@@ -59,7 +59,6 @@ function App() {
                   path="/forecast"
                   element={<DaysWeatherContainer dayForecast={dailyForecast} />}
                 />
-                <Route path="/wind-map" element={<WindMap />} />
                 <Route path="/tips" element={<Tips />} />
               </Routes>
               ;

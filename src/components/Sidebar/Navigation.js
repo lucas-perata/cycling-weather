@@ -11,9 +11,6 @@ const Navigation = () => {
         <Link to="/forecast">Próximos días</Link>
       </button>
       <button className="bg-white">
-        <Link to="/wind-map">Mapa de viento</Link>
-      </button>
-      <button className="bg-white">
         <Link to="/tips">Tips</Link>
       </button>
     </div>
