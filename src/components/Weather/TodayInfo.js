@@ -3,12 +3,13 @@ import BigCard from "../WeatherCards/BigCard";
 import SmallCard from "../WeatherCards/SmallCard";
 import setWindDirection from "../../hooks/setWindDirection";
 import moment from "moment/moment";
+import "moment/locale/es";
 import { FiSunset, FiSunrise, FiCompass } from "react-icons/fi";
 
 const TodayInfo = ({ weatherData }) => {
   return (
     <div className="bg-slate-900 flex flex-col">
-      <h2 className="p-5 text-2xl">Detalles del día</h2>
+      <h2 className="p-5 text-2xl">Detalles del día {moment().format("LL")}</h2>
       <section className="flex justify-center flex-wrap gap-5">
         <BigCard
           title={"Humedad"}
