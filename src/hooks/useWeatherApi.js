@@ -7,7 +7,7 @@ const useWeatherApi = (lat, long) => {
   useEffect(() => {
     const fetchData = async () => {
       await fetch(
-        `${process.env.REACT_APP_API_URL_2}/forecast.json?key=${process.env.REACT_APP_API_KEY_2}&q=${lat}, ${long}&days=4`
+        `${process.env.REACT_APP_API_URL_2}/forecast.json?key=${process.env.REACT_APP_API_KEY_2}&q=${lat}, ${long}&days=7`
       )
         .then((res3) => res3.json())
         .then((result3) => {
