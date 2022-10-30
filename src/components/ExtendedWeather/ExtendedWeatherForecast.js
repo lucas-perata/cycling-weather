@@ -2,15 +2,15 @@ import React from "react";
 
 const ExtendedWeatherForecast = ({ dayForecast }) => {
   return (
-    <div className="flex flex-row text-white text-lg p-7 gap-7 justify-evenly flex-wrap">
+    <div className="flex flex-row text-white text-lg p-7 gap-7 justify-evenly flex-wrap xs:flex-col">
       {dayForecast.forecast["forecastday"].slice(1, 6).map((item) => {
         return (
-          <div className=" text-slate-300 flex flex-col text-center w-2/5">
-            <div className="bg-slate-800 hover:bg-slate-700 border border-slate-800 flex-col shadow-xl w-full justify-center h-56 rounded-xl flex xs:flex-col">
+          <div className=" text-slate-300 flex flex-col text-center w-2/5 xs:w-full">
+            <div className="bg-slate-800 hover:bg-slate-700 border border-slate-800 flex-col shadow-xl w-full justify-center h-56 rounded-xl flex xs:flex-col xs:h-full">
               <div className="bg-slate-900 shadow-md h-10 flex justify-center items-center">
                 <p className=" text-slate-100">{`${item["date"]}`}</p>
               </div>
-              <div className="flex mt-3 gap-5 justify-center  items-center">
+              <div className="flex mt-3 gap-5 justify-center  items-center xs:flex-col">
                 <img
                   className="w-20 h-20"
                   src={`http:${item["day"]["condition"]["icon"]}`}
