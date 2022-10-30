@@ -7,8 +7,8 @@ import { FiSunset, FiSunrise, FiCompass } from "react-icons/fi";
 
 const TodayInfo = ({ weatherData }) => {
   return (
-    <div className="bg-white flex flex-col">
-      <h2 className="p-5 text-xl">Today Info</h2>
+    <div className="bg-slate-900 flex flex-col">
+      <h2 className="p-5 text-2xl">Detalles del día</h2>
       <section className="flex justify-center flex-wrap gap-5">
         <BigCard
           title={"Humedad"}
@@ -16,11 +16,9 @@ const TodayInfo = ({ weatherData }) => {
           details={
             <div class="w-full bg-gray-200 rounded-full">
               <div
-                class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l-full"
+                class="bg-fuchsia-900 text-xs h-3 font-medium text-blue-100 leading-none rounded-l-full"
                 style={{ width: `${weatherData.main["humidity"]}%` }}
-              >
-                {weatherData.main["humidity"]}%
-              </div>
+              ></div>
             </div>
           }
         />
@@ -37,7 +35,7 @@ const TodayInfo = ({ weatherData }) => {
         />
         <SmallCard
           title={"Puesta del sol"}
-          info={moment.unix(weatherData.sys["sunset"]).format("HH:mm")}
+          info={`${moment.unix(weatherData.sys["sunset"]).format("HH:mm")}`}
           icon={<FiSunset />}
         />
       </section>

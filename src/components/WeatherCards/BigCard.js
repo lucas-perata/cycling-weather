@@ -3,7 +3,7 @@ import "./Card.css";
 
 const BigCard = ({ title, info, details, icon }) => {
   return (
-    <div className="bg-blue-400 h-64 p-10 gap-5 card-width rounded-xl text-center flex justify-center flex-col">
+    <div className="bg-slate-800 hover:bg-slate-700 h-64 p-10 gap-5 card-width rounded-xl text-center flex justify-center flex-col">
       <h3 className="">{title}</h3>
       <p style={{ fontSize: "3rem" }}>{info}</p>
       <div
