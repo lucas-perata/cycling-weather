@@ -24,7 +24,9 @@ function App() {
     });
   }
 
-  fetchData();
+  if (typeof lat == "object") {
+    fetchData();
+  }
 
   let data = useMainWeather(lat, long);
   let dailyForecast = useWeatherApi(lat, long);
@@ -69,8 +71,12 @@ function App() {
                     className="m-auto mb-5 animate-pulse "
                     color="rgba(220, 73, 0, 1)"
                   />
-                  <p className="animate-pulse ">
-                    Consiguiendo información sobre el clima en tu ubicación
+                  <p className="animate-pulse xs:text-center xs:text-xs">
+                    Consiguiendo información sobre el clima en tu ubicación.
+                  </p>
+                  <br />
+                  <p className="animate-pulse xs:text-center">
+                    Recuerda otorgar los permisos necesarios en tu navegador.
                   </p>
                 </div>
                 {show && (
